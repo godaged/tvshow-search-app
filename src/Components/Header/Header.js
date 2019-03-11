@@ -23,11 +23,18 @@ function Header() {
                     />
                 </div>
                 <div>
-                    <img
-                        src={name}
-                        // height="26"
-                        alt="TV Maze API"
-                    />
+                    <h1>
+                        TV Show Database Search App&nbsp;&nbsp;
+                    </h1>
+                </div>
+                <div>
+                    <h1>Home&nbsp;&nbsp;</h1>
+                </div>
+                <div>
+                    <h1>Show&nbsp;&nbsp;</h1>
+                </div>
+                <div>
+                    <h1>Episodes&nbsp;&nbsp;</h1>
                 </div>
             </nav>
         </header>
