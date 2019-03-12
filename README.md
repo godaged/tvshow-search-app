@@ -1,5 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+https://www.w3.org/TR/CSS2/selector.html#class-html
+https://www.w3.org/TR/selectors-3/
 ## Available Scripts
 
 In the project directory, you can run:
