@@ -1,42 +1,25 @@
 import React from 'react';
-import './Header.css';
 import mobicon from '../../Images/mobile.png';
 import logo from '../../Images/tvm-logo.png';
-import name from '../../Images/name.png';
+// import { NavLink } from 'react-router-dom';
+import { Nav, Navbar } from 'react-bootstrap';
 
 function Header() {
     return (
-        <header className="title-bar">
-            <nav className="title-bar-nav">
-                <div className="title-bar-mobile">
-                    <img
-                        src={mobicon}
-                        height="32"
-                        alt="mobile menu"
-                    />
-                </div>
-                <div className="title-bar-logo">
-                    <img
-                        src={logo}
-                        height="26"
-                        alt="TV Maze API"
-                    />
-                </div>
-                <div>
-                    <h1>
-                        TV Show Database Search App&nbsp;&nbsp;
-                    </h1>
-                </div>
-                <div>
-                    <h1>Home&nbsp;&nbsp;</h1>
-                </div>
-                <div>
-                    <h1>Show&nbsp;&nbsp;</h1>
-                </div>
-                <div>
-                    <h1>Episodes&nbsp;&nbsp;</h1>
-                </div>
-            </nav>
+
+        //     <span ><img src={mobicon} height="32" alt="mobile menu" /> <img src={logo} height="26" alt="TV Maze API" /></span>
+
+        <header>
+            <Navbar bg="primary" variant="dark">
+                <Navbar.Brand ><span ><img src={logo} height="26" alt="TV Maze API" /></span></Navbar.Brand>
+                <Nav className="mr-auto">
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/Show">Show</Nav.Link>
+                    <Nav.Link href="/Episodes">Episodes</Nav.Link>
+                </Nav>
+                
+            </Navbar>
+            <h1>TV Show Search</h1>
         </header>
     )
 }
