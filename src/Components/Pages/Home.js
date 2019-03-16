@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import SearchTextBox from '../Search/Search';
 import noImage from '../../Images/no-image.png';
 import './Pages.css';
+import { Media } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
     constructor() {
@@ -42,16 +44,21 @@ class Home extends Component {
                 {this.state.tvShows.map(show => {
                     return (
                         <div key={show.show.id}>
+
                             {/* <div><h2><span>{show.show.name}</span></h2></div> */}
                             {/* <div><img src={show.show.image.medium} alt=""></img></div> */}
                             {/* <div dangerouslySetInnerHTML={{ __html: show.show.summary }} /> */}
-                            <div ><a href={show.show.image.medium} ><h2>{show.show.name}</h2></a> </div>
-
-                            <img onError={this.onError.bind(this)} src={show.show.image.medium} alt="" />
-                            {/* <img src={show.show.image.medium} ref={img => this.img = img} onError={() => this.img.src = {noImage}}></img> */}
-                            {/* <img src={show.show.image.medium} onError={(e)=>{e.target.src="https://en.wikipedia.org/wiki/File:No_image_available.svg"}}/> */}
-
-                            {/* <div dangerouslySetInnerHTML={{__html: show.show.summary}} /> */}
+                            <div className="App" ><Link to={'/Show/'+show.show.id} ><h2>{show.show.name}</h2></Link> </div>
+                            <Media >
+                                <img onError={this.onError.bind(this)} src={show.show.image.medium} alt="" />
+                                {/* <img src={show.show.image.medium} ref={img => this.img = img} onError={() => this.img.src = {noImage}}></img> */}
+                                {/* <img src={show.show.image.medium} onError={(e)=>{e.target.src="https://en.wikipedia.org/wiki/File:No_image_available.svg"}}/> */}
+                                <Media.Body>
+                                    <p>
+                                        <div dangerouslySetInnerHTML={{ __html: show.show.summary }} />
+                                    </p>
+                                </Media.Body>
+                            </Media >
                         </div>
                     )
                 })}
@@ -59,20 +66,6 @@ class Home extends Component {
         )
     }
 
-    // render() {
-    //     return (
-    //         <div>
-    //              {this.state.tvShows.map(show => { 
-    //             return (
-    //             <div>
-    //                 <div><a href={show.show.image.medium} ><h2>{show.show.name}</h2></a> </div>
-    //                 <div><img src={show.show.image.medium} alt=""></img></div>
-    //                 <div dangerouslySetInnerHTML={{__html: show.show.summary}} />
-    //              </div> 
-    //              )})}
-    //         </div>            
-    //     )
-    // }
 }
 
 export default Home;

@@ -5,25 +5,29 @@ import noImage from '../../Images/no-image.png';
 import './Pages.css';
 
 class Episodes extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             search: "",
+            tvShows: "",
             episodes: [],
         }
         this.doSearch = this.doSearch.bind(this);
     }
 
     async componentDidMount() {
-        await this.doSearch();
+        const showId = this.props.match.params.id != null ? this.props.match.params.id : 1;
+        await this.doSearch(showId);
     }
 
     doSearch = async (showNumber = 1, limit = 10) => {
-        let jsonData = [];
-        const response = await fetch(`http://api.tvmaze.com/shows/${showNumber}/episodes`);
-        jsonData = await response.json();
+        let jsonEpisodeData = [];
+        const responseEpisode = await fetch(`http://api.tvmaze.com/shows/${showNumber}/episodes`);
+        jsonEpisodeData = await responseEpisode.json();
+        const responseShow = await fetch(`http://api.tvmaze.com/shows/${showNumber}`);
+        const jsonShowData = await responseShow.json();
         //console.log(jsonData)
-        this.setState({ episodes: jsonData });
+        this.setState({ episodes: jsonEpisodeData , tvShows: jsonShowData});
     }
 
     render() {
@@ -31,6 +35,7 @@ class Episodes extends Component {
             <div>
                 <div className="">
                     <SearchTextBox onSearch={this.doSearch} />
+                    <h2>{this.state.tvShows.name}</h2>
                 </div>
 
                 {this.state.episodes.map(episode => {

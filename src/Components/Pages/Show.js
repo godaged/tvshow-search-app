@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import SearchTextBox from '../Search/Search';
 import './Pages.css';
+import { Link } from 'react-router-dom';
 
 class Show extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             search: "",
             tvShows: "",
@@ -15,10 +16,12 @@ class Show extends Component {
     }
 
     async componentDidMount() {
-        await this.doSearch();
+        const showId = this.props.match.params.id != null ? this.props.match.params.id : 1;
+        
+        await this.doSearch(showId );
     }
 
-    doSearch = async (showNumber = 2) => { //max show number = 41306
+    doSearch = async (showNumber ) => { //max show number = 41306
         const response = await fetch(`http://api.tvmaze.com/shows/${showNumber}?embed=cast`);
         const jsonData = await response.json();
         console.log(jsonData._embedded.cast);
@@ -33,7 +36,7 @@ class Show extends Component {
                 </div>
 
                 <div>
-                    <div><h2><span>{this.state.tvShows.name}</span></h2></div>
+                    <div><Link to={'/Episodes/'+this.state.tvShows.id} ><h2><span>{this.state.tvShows.name}</span></h2></Link></div>
                     <div><img src={this.state.showImage} alt=""></img></div>
                     <div dangerouslySetInnerHTML={{ __html: this.state.tvShows.summary }} />
                 </div>                

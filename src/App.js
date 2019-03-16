@@ -6,17 +6,20 @@ import Home from './Components/Pages/Home';
 import Show from './Components/Pages/Show';
 import Episodes from './Components/Pages/Episodes';
 
+
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="App">
-          <PageTitleBar />
-          
+        <div className="main-content App ">
+          <div className="">
+            <PageTitleBar />
+          </div>
+
           <div className="main-content">
             <Route exact path="/" component={Home} />
-            <Route path="/Show" component={Show} />
-            <Route path="/Episodes" component={Episodes} />
+            <Route path="/Show/:id" component={Show} />
+            <Route path="/Episodes/:id" component={Episodes} />
           </div>
         </div>
       </BrowserRouter>
