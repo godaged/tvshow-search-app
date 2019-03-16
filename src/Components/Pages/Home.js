@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchTextBox from '../Search/Search';
+import SearchTextBox from '../Search/SearchShowName';
 import noImage from '../../Images/no-image.png';
 import './Pages.css';
 import { Media } from 'react-bootstrap';
@@ -37,7 +37,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <div className="">
+                <div className="search">
                     <SearchTextBox onSearch={this.doSearch} />
                 </div>
 
@@ -48,14 +48,18 @@ class Home extends Component {
                             {/* <div><h2><span>{show.show.name}</span></h2></div> */}
                             {/* <div><img src={show.show.image.medium} alt=""></img></div> */}
                             {/* <div dangerouslySetInnerHTML={{ __html: show.show.summary }} /> */}
-                            <div className="App" ><Link to={'/Show/'+show.show.id} ><h2>{show.show.name}</h2></Link> </div>
+                            <div className="show-name" >
+                                <Link to={'/Show/' + show.show.id} ><h2>{show.show.name}</h2></Link>
+                            </div>
                             <Media >
-                                <img onError={this.onError.bind(this)} src={show.show.image.medium} alt="" />
-                                {/* <img src={show.show.image.medium} ref={img => this.img = img} onError={() => this.img.src = {noImage}}></img> */}
-                                {/* <img src={show.show.image.medium} onError={(e)=>{e.target.src="https://en.wikipedia.org/wiki/File:No_image_available.svg"}}/> */}
+                                <div>
+                                    <img onError={this.onError.bind(this)} src={show.show.image.medium} alt="" />
+                                    {/* <img src={show.show.image.medium} ref={img => this.img = img} onError={() => this.img.src = {noImage}}></img> */}
+                                    {/* <img src={show.show.image.medium} onError={(e)=>{e.target.src="https://en.wikipedia.org/wiki/File:No_image_available.svg"}}/> */}
+                                </div>
                                 <Media.Body>
-                                    <p>
-                                        <div dangerouslySetInnerHTML={{ __html: show.show.summary }} />
+                                    <p dangerouslySetInnerHTML={{ __html: show.show.summary }}>
+                                        
                                     </p>
                                 </Media.Body>
                             </Media >

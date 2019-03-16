@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchTextBox from '../Search/Search';
+import SearchTextBox from '../Search/SearchShowNumber';
 import './Pages.css';
 import { Link } from 'react-router-dom';
 

@@ -17,6 +17,7 @@ function Header() {
                 </Nav>
                 
             </Navbar>
+            
             <h1>TV Show Search</h1>
             
         </header>

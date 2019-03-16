@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import './search.css';
 
-class Search extends Component {
+class SearchShowNumber extends Component {
   constructor() {
     super()
     this.state = {
-        searchShowName: '',     
-        // showsPerPage: 10,
+        searchShowNumber: '',     
       }
   }
   
   
-  onSearchShowNameChange = e => {
-    this.setState({ searchShowName: e.target.value });
+  onsearchShowNumberChange = e => {
+    this.setState({ searchShowNumber: e.target.value });
   }
   
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSearch(this.state.searchShowName);
+    this.props.onSearch(this.state.searchShowNumber);
     e.currentTarget.reset();
   }
   
@@ -26,14 +25,14 @@ class Search extends Component {
       <form className="search-form" onSubmit={this.handleSubmit} >
         <input type="search" 
                className="search-text"
-               onChange={this.onSearchShowNameChange}
+               onChange={this.onsearchShowNumberChange}
                name="Search" 
-               placeholder="Search TV Show Name" 
+               placeholder="Enter Show Number" 
                />
-        <button type="submit" id="submit" className="search-button">Search Show Name</button>
+        <button type="submit" id="submit" className="search-button">Search Show Number</button>
       </form>      
     );
   }
 }
 
-export default Search;
+export default SearchShowNumber;

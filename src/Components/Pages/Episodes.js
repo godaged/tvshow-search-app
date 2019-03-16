@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import SearchTextBox from '../Search/Search';
+import SearchTextBox from '../Search/SearchShowNumber';
 import noImage from '../../Images/no-image.png';
 import './Pages.css';
 
