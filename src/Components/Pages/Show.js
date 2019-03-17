@@ -10,77 +10,99 @@ class Show extends Component {
         this.state = {
             search: "",
             tvShows: "",
-            showImage: "",
             network: "",
-            country: "",
             cast: [],
         }
         this.doSearch = this.doSearch.bind(this);
     }
 
     async componentDidMount() {
+        //if null, set showId to 1
         const showId = this.props.match.params.id != null ? this.props.match.params.id : 1;
-
         await this.doSearch(showId);
     }
 
+    //fetch API call
     doSearch = async (showNumber) => { //max show number = 41306
         const response = await fetch(`http://api.tvmaze.com/shows/${showNumber}?embed=cast`);
         const jsonData = await response.json();
-        console.log(jsonData._embedded.cast);
+        //console.log(jsonData._embedded.cast);
         this.setState({
             tvShows: jsonData,
-            showImage: jsonData.image.medium,
             cast: jsonData._embedded.cast,
             network: jsonData.network,
-            country: jsonData.network.country,
         });
     }
 
     render() {
+        //{/* handle if image is null, replace default noImage image */ }
+        let showImage;
+        if (this.state.tvShows.image != null) {
+            showImage = this.state.tvShows.image.medium;
+        } else {
+            showImage = noImage;
+        }
         return (
+
             <div className="" key={this.state.tvShows.id}>
+                {/**Search Show Number */}
                 <div className="main-content  search">
                     <SearchTextBox onSearch={this.doSearch} />
                 </div>
                 <div >
                     <div className="main-content">
                         <div>
-                            <Link to={'/Episodes/' + this.state.tvShows.id} activeStyle={{ background: 'green' }}>
-                                <h2 className="show-name"><span>{this.state.tvShows.name}<img src={mouseClick} alt="" width="20" height="20"/></span></h2>
+                            {/* This Link will Navigate to Episode List for this Show setting id property */}
+                            <Link to={'/Episodes/' + this.state.tvShows.id} >
+                                <h2 className="show-name">
+                                    <span>{this.state.tvShows.name}
+                                        <img src={mouseClick} alt="Navigate to Episodes" width="20" height="20" />
+                                    </span>
+                                </h2>
                             </Link>
                         </div>
                     </div>
                     <div >
                         <div className="main-content">
                             <div className="wrapper-img ">
-                                <img src={this.state.showImage} alt=""></img>
+                                <img src={showImage} alt=""></img>
                             </div>
                             <div className="wrapper-text">
-                                <span className="p-text " ><b>Show ID:</b> {this.state.tvShows.id},</span>
-                                <br />
-                                <span className="p-text "><b>  Network:</b> {this.state.network.name}, {this.state.country.name}</span>
-                                <br />
-                                <span className="p-text line-space"><b>Summary:</b></span>
+                                <span className="p-text line-space" >
+                                    <p></p>
+                                    <p><b>Show ID:</b> {this.state.tvShows.id}</p>
+                                    <p><b>  Network:</b>
+                                        {this.state.network != null ? this.state.network.name : ""}, {this.state.country != null ? this.state.country.name : ""}
+                                    </p>
+                                    <p><b>Summary:</b></p>
+                                </span>
                                 <p className="bg-summary" dangerouslySetInnerHTML={{ __html: this.state.tvShows.summary }} />
                             </div>
                             <div className="clear-both"></div>
-                            <div><br></br></div>
+                            <div></div>
                         </div>
                     </div >
 
                     <div className="">
-                        <div><h2 className="cast-content show-name">Cast</h2></div>
+                        <div>
+                            <h2 className="cast-content show-name">
+                                {"Cast"}
+                            </h2>
+                        </div>
                         {this.state.cast.map(show => {
                             return (
                                 <div className="wrapper-33" key={this.state.tvShows.externals.imdb + show.person.id + show.character.id} >
-                                    <div ><img className="cast-img" src={show.person.image.medium} alt=""></img></div>
                                     <div >
-                                        <div className="name-text name-box">{show.person.name} as<br /> {show.character.name} </div>
+                                        <img className="cast-img" src={show.person.image.medium} alt="">
+                                        </img>
+                                    </div>
+                                    <div >
+                                        <div className="name-text name-box">
+                                            {show.person.name} as<br /> {show.character.name}
+                                        </div>
                                     </div>
                                     <br></br>
                                 </div>
-
                             )
                         })}
                     </div>
@@ -88,21 +110,6 @@ class Show extends Component {
             </div>
         )
     }
-
-    // render() {
-    //     return (
-    //         <div>
-    //              {this.state.tvShows.map(show => { 
-    //             return (
-    //             <div>
-    //                 <div><a href={show.show.image.medium} ><h2>{show.show.name}</h2></a> </div>
-    //                 <div><img src={show.show.image.medium} alt=""></img></div>
-    //                 <div dangerouslySetInnerHTML={{__html: show.show.summary}} />
-    //              </div> 
-    //              )})}
-    //         </div>            
-    //     )
-    // }
 }
 
 export default Show;

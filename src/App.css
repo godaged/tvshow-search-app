@@ -27,11 +27,16 @@ h1 {
   font-size: 12px;
 }
 span.line-space {
-  line-height: 80%;
+  line-height: 10%;
 }
 .menu-bar {
   color: white;
   margin-right: 8px;
+}
+.footer-bar {
+  color: white;
+  margin-right: 8px;
+  font-size: small;
 }
 .name-box {
   border-radius: 4px;
@@ -97,7 +102,7 @@ div > img {
   font-family: "Open Sans",sans-serif;
   font-size: 25px;
   text-align: center;
-  background-color: lawngreen;
+  background-color: rgba(126, 252, 0, 0.199);
   margin-top: 5px;
 }
 

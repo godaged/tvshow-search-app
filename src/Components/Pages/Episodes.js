@@ -1,8 +1,6 @@
 
 import React, { Component } from 'react';
 import SearchTextBox from '../Search/SearchShowNumber';
-import noImage from '../../Images/no-image.png';
-
 
 class Episodes extends Component {
     constructor(props) {
@@ -20,6 +18,7 @@ class Episodes extends Component {
         await this.doSearch(showId);
     }
 
+    //fetch API data
     doSearch = async (showNumber = 1, limit = 10) => {
         let jsonEpisodeData = [];
         const responseEpisode = await fetch(`http://api.tvmaze.com/shows/${showNumber}/episodes`);
@@ -33,18 +32,29 @@ class Episodes extends Component {
     render() {
         return (
             <div className="main-content">
+            {/**Search Show Number */}
                 <div className="search">
                     <SearchTextBox onSearch={this.doSearch} />
                 </div>
                 <div>
-                    <h2 className="show-name">{this.state.tvShows.name}</h2>
-                    <h3>Episode List</h3>
+                    <h2 className="show-name">
+                        {this.state.tvShows.name}
+                    </h2>
+                    <h3>
+                       { "Episode List"}
+                    </h3>
                 </div>
 
                 {this.state.episodes.map(episode => {
                     return (
                         <div key={episode.id}>
-                            <div><h3 className="episode-name"><span>{episode.name}</span></h3></div>
+                            <div>
+                                <h3 className="episode-name">
+                                    <span>
+                                        {episode.name}
+                                    </span>
+                                </h3>
+                            </div>
                             <div className="bg-summary episode-summary-bg" dangerouslySetInnerHTML={{ __html: episode.summary }} />
                         </div>
                     )

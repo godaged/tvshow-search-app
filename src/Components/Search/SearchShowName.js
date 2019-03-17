@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class SearchShowName extends Component {
   constructor() {
     super()
@@ -9,8 +8,7 @@ class SearchShowName extends Component {
         // showsPerPage: 10,
       }
   }
-  
-  
+    
   onSearchShowNameChange = e => {
     this.setState({ searchShowName: e.target.value });
   }
