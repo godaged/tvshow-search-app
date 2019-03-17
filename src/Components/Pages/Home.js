@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchTextBox from '../Search/SearchShowName';
 import noImage from '../../Images/no-image.png';
-import './Pages.css';
+import mouseClick from '../../Images/mouseClick.png';
 import { Media } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -37,30 +37,37 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <div className="search">
+                <div className="search main-content">
                     <SearchTextBox onSearch={this.doSearch} />
                 </div>
 
                 {this.state.tvShows.map(show => {
                     return (
-                        <div key={show.show.id}>
+                        <div className="main-content" key={show.show.id}>
 
                             {/* <div><h2><span>{show.show.name}</span></h2></div> */}
                             {/* <div><img src={show.show.image.medium} alt=""></img></div> */}
                             {/* <div dangerouslySetInnerHTML={{ __html: show.show.summary }} /> */}
-                            <div className="show-name" >
-                                <Link to={'/Show/' + show.show.id} ><h2>{show.show.name}</h2></Link>
+                            <div  >
+                                <Link to={'/Show/' + show.show.id} activeStyle={{background: 'green'}}><h2 className="show-name">{show.show.name} <img src={mouseClick} alt="" width="20" height="20"/> </h2></Link>
                             </div>
                             <Media >
-                                <div>
-                                    <img onError={this.onError.bind(this)} src={show.show.image.medium} alt="" />
+                                <div className="wrapper-img "> 
+                                    <img  onError={this.onError.bind(this)} src={show.show.image.medium} alt="" />
                                     {/* <img src={show.show.image.medium} ref={img => this.img = img} onError={() => this.img.src = {noImage}}></img> */}
                                     {/* <img src={show.show.image.medium} onError={(e)=>{e.target.src="https://en.wikipedia.org/wiki/File:No_image_available.svg"}}/> */}
                                 </div>
                                 <Media.Body>
-                                    <p dangerouslySetInnerHTML={{ __html: show.show.summary }}>
-                                        
-                                    </p>
+                                    <div  >
+                                    <span className="p-text " ><b>Show ID:</b> {show.show.id }
+                                    <br/><b>Official Site: </b>{show.show.officialSite}</span>
+                                    <br />
+                                    <span className="p-text "><b>  Stars:</b> {show.show.rating.average }</span>
+                                    <br/>
+                                    <span className="p-text line-space"><b>Summary:</b></span>
+                                    <p className="bg-summary" dangerouslySetInnerHTML={{ __html: show.show.summary }} />
+                                    </div>
+                                    
                                 </Media.Body>
                             </Media >
                         </div>

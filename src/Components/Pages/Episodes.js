@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import SearchTextBox from '../Search/SearchShowNumber';
 import noImage from '../../Images/no-image.png';
-import './Pages.css';
+
 
 class Episodes extends Component {
     constructor(props) {
@@ -27,22 +27,25 @@ class Episodes extends Component {
         const responseShow = await fetch(`http://api.tvmaze.com/shows/${showNumber}`);
         const jsonShowData = await responseShow.json();
         //console.log(jsonData)
-        this.setState({ episodes: jsonEpisodeData , tvShows: jsonShowData});
+        this.setState({ episodes: jsonEpisodeData, tvShows: jsonShowData });
     }
 
     render() {
         return (
-            <div>
-                <div className="">
+            <div className="main-content">
+                <div className="search">
                     <SearchTextBox onSearch={this.doSearch} />
-                    <h2>{this.state.tvShows.name}</h2>
+                </div>
+                <div>
+                    <h2 className="show-name">{this.state.tvShows.name}</h2>
+                    <h3>Episode List</h3>
                 </div>
 
                 {this.state.episodes.map(episode => {
                     return (
                         <div key={episode.id}>
-                            <div><h2><span>{episode.name}</span></h2></div> 
-                            <div dangerouslySetInnerHTML={{__html: episode.summary}} />
+                            <div><h3 className="episode-name"><span>{episode.name}</span></h3></div>
+                            <div className="bg-summary episode-summary-bg" dangerouslySetInnerHTML={{ __html: episode.summary }} />
                         </div>
                     )
                 })}

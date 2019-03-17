@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
-import PageTitleBar from './Components/Header/Header';
+import PageNavBar from './Components/Header/Header';
 import Home from './Components/Pages/Home';
 import Show from './Components/Pages/Show';
 import Episodes from './Components/Pages/Episodes';
@@ -13,10 +13,10 @@ class App extends Component {
       <BrowserRouter>
         <div className="main-content App ">
           <div className="">
-            <PageTitleBar />
+            <PageNavBar />
           </div>
 
-          <div className="main-content">
+          <div className=" ">
             <Route exact path="/" component={Home} />
             <Route path="/Show/:id" component={Show} />
             <Route path="/Episodes/:id" component={Episodes} />

@@ -1,25 +1,63 @@
 body{
   background-color: black;
-  /* background-image: url("Images/bg2.png");
-  background-repeat: repeat;
-
-   */
 }
 
 h1 {
+  margin-top: 0px;
+  font-family: "Open Sans",sans-serif;
+  font-size: 40px;
   text-align: center;
   background-color: #007bff;
+  color: wheat;
+}
+ h3 {
+  font-family: "Open Sans",sans-serif;
+  font-size: 22px;
+  color:rgb(2, 23, 49);
+  text-decoration: underline;
+ }
+ .p-text, 
+ .bg-summary,
+ .name-text,
+ .search-form
+  {
+  font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+.p-text {
+  font-size: 12px;
+}
+span.line-space {
+  line-height: 80%;
+}
+.menu-bar {
+  color: white;
+  margin-right: 8px;
+}
+.name-box {
+  border-radius: 4px;
+  margin: 10px 30px;
+  background-color: #1fa8f7;
+}
+.bg-summary{
+  margin-right: 8px;
+  font-size: small;
 }
 
-/* p {
-  margin-left: 5px;
-} */
+.name-text {
+  font-size: small;
+  text-align: center;
+  color: white;
+}
 div > img {
   margin-bottom: 25px; 
    object-fit:contain;
    max-width: 90%; 
    display: block;
    margin: auto auto;
+   border-radius: 2%;
+}
+.cast-img {
+  margin-top: 10px;
 }
 
 .App {
@@ -28,39 +66,210 @@ div > img {
 }
 
 .main-content {
-  width: 80%;
+  width: 85%;
   max-width: 800px;
   margin: auto;
 }
 
+.cast-content {
+  width: 93%;
+  max-width: 800px;
+  margin: auto;
+  height: 40px;
+}
 .search{
   text-align: right;
 }
+
+.search-form {
+  padding-top: 5px;
+  font-size: small;
+}
+.search-button {
+    margin-left: -1px;
+    background-color: rgba(21, 255, 0, 0.39);
+}
+
+.search-text{
+    background-color: rgba(21, 255, 0, 0.164);
+}
 .show-name {
+  font-family: "Open Sans",sans-serif;
+  font-size: 25px;
   text-align: center;
   background-color: lawngreen;
   margin-top: 5px;
 }
-.App-header {
-  background-color: #4bd146;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+.episode-name {
+  font-family: "Open Sans",sans-serif;
+  /* font-size: 20px; */
+  text-align: left;
+  color: rgb(9, 109, 240);
+  text-decoration: none;
+  margin-top: 5px;
 }
+.show-list {
+  display: block;
+  margin: auto;
+}
+.episode-summary-bg {
+  background-color: rgba(255, 174, 0, 0.13)
+}
+
+.wrapper-33 {
+  float: left;
+  width: 33.33%;
+  background-color: #c9e6fa;
+  margin-top: -8px;
+}
+
+.wrapper-img {
+  float: left;
+  width: 34%;
+  /* background-color: #c9e6fa; */
+}
+.wrapper-text {
+  float: left;
+  width: 66%;
+  /* background-color: #c9e6fa; */
+}
+.clear-both {
+  clear: both;
+}
+
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (min-width : 320px) and (max-width : 480px){
+  h1 {
+    font-size: 18px;
   }
-  to {
-    transform: rotate(360deg);
+  h3 {
+    font-size: 14px;
+   }
+  .show-name {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  .name-text {
+    font-size: 9px;
+  }
+  .search-form,
+  .bg-summary,
+  .p-text {
+    font-size: 10px;
+  }
+  .name-box {
+    margin: 10px 2px;
+  }
+  .main-content {
+    width: 99%;
+  }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 481px) {
+  h1 {
+    font-size: 22px;
+  }
+  h3 {
+    font-size: 16px;
+   }
+  .show-name {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  .name-text {
+    font-size: 10px;
+  }
+  .search-form,
+  .bg-summary,
+  .p-text {
+    font-size: 11px;
+  }
+  .name-box {
+    margin: 10px 10px;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 641px) {
+  h1 {
+    font-size: 25px;
+  }
+  h3 {
+    font-size: 18px;
+   }
+  .show-name {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+  .search-form,
+  .name-text,
+  .bg-summary,
+  .p-text {
+    font-size: 12px;
+  }
+  .name-box {
+    margin: 10px 16px;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 961px)  {
+  h1 {
+    font-size: 30px;
+  }
+  h3 {
+    font-size: 20px;
+   }
+  .show-name {
+    font-size: 20px;
+    margin-top: 5px;
+  }
+  .search-form,
+  .bg-summary,
+  .p-text {
+    font-size: 13px;
+  }
+  .name-box {
+    margin: 10px 26px;
+  }
+}
+
+@media only screen and (min-width : 1025px)  {
+  h1 {
+    font-size: 35px;
+  }
+  .show-name {
+    font-size: 22px;
+    margin-top: 5px;
+  }
+  .name-box {
+    margin: 10px 28px;
+  }
+}
+@media only screen and (min-width : 1281px)  {
+  h1 {
+    font-size: 40px;
+  }
+  h3 {
+    font-size: 22px;
+   }
+  .show-name {
+    font-size: 25px;
+    margin-top: 5px;
+  }
+  .search-form,
+  .name-text,
+  .bg-summary,
+  .p-text {
+    font-size: 14px;
+  }
+  .name-box {
+    margin: 10px 30px;
   }
 }

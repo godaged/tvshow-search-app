@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './search.css';
 
 class SearchShowNumber extends Component {
   constructor() {

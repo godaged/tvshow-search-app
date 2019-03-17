@@ -1,25 +1,23 @@
 import React from 'react';
-//import mobicon from '../../Images/mobile.png';
 import logo from '../../Images/tvm-logo.png';
-import { NavLink } from 'react-router-dom';
 import { Nav, Navbar } from 'react-bootstrap';
+import {NavLink} from 'react-router-dom';
 
 function Header() {
     return (
 
         <header>
             <Navbar bg="primary" variant="dark">
-                <Navbar.Brand ><span ><img src={logo} height="26" alt="TV Maze API" /></span></Navbar.Brand>
-                <Nav className="mr-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/Show/1">Show</Nav.Link>
-                    <Nav.Link href="/Episodes/1">Episodes</Nav.Link>
+                <Navbar.Brand ><span ><img src={logo} height="26px" alt="TV Maze API" /></span></Navbar.Brand>
+                <Nav className="mr-auto menu-bar">
+                    <NavLink exact to="/" className="menu-bar" activeStyle={{background: 'green'}}>Home</NavLink>
+                    <NavLink to="/Show/1" className="menu-bar" activeStyle={{background: 'green'}}>Show</NavLink>
+                    <NavLink to="/Episodes/1" className="menu-bar" activeStyle={{background: 'green'}}>Episodes</NavLink>
                 </Nav>
                 
             </Navbar>
             
-            <h1>TV Show Search</h1>
-            
+            <h1>TV Show Search</h1>            
         </header>
     )
 }
