@@ -2,9 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # TV Show Search App using React
 ### TVMaze API is used for this project.
 This application has three menu items
-`Home
-`Show
-`Episodes
+**1. Home
+**2. Show
+**3. Episodes
 
 When you load the page it gets random name from array of name lists and search for containing text in TV Show name and displays them in Home page
 
