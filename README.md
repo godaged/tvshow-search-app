@@ -1,4 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## TV Show Search App
+### TVMaze API is used for this project.
 
 ## Available Scripts
 
