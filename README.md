@@ -14,6 +14,11 @@ When you click on Episodes menu, it displays episodes list related to Show Id 1.
 In Home page, you can click on Show Name and it will bring the information of that Show.
 In Show page, if you click on Show name, it will bring Episodes page with episodes list related to that Show.
 
+## React
+## React DOM
+## React RouterDOM
+## React bootstrap
+
 ## Available Scripts
 
 In the project directory, you can run:
