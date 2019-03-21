@@ -107,6 +107,7 @@ class Show extends Component {
                         })}
                     </div>
                 </div>
+                <div className="clear-both"></div>
             </div>
         )
     }
